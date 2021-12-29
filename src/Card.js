@@ -9,7 +9,7 @@ import axios from 'axios';
 
 // For real time
 import io from 'socket.io-client'
-const socket = io('http://localhost:5000/');
+const socket = io('https://fewerhnm.herokuapp.com/');
 
 const Card = ({ type, user, setUsers, allusers }) => {
 
@@ -18,7 +18,7 @@ const Card = ({ type, user, setUsers, allusers }) => {
     const [cardUser, setCardUser] = useState(user);
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5000/users/delete/${id}`)
+        axios.delete(`https://fewerhnm.herokuapp.com/users/delete/${id}`)
         socket.on('user-deleted', (id) => {
             const newUsers = allusers.filter(user => {
                 return user._id !== id
