@@ -8,7 +8,7 @@ import io from 'socket.io-client'
 // For uploading data
 import axios from 'axios'
 
-const socket = io('http://localhost:5000/');
+const socket = io('https://fewerhnm.herokuapp.com/');
 
 const Popup = ({ setPopup, user, setUsers, setCardUser }) => {
 
@@ -40,7 +40,7 @@ const Popup = ({ setPopup, user, setUsers, setCardUser }) => {
 
         
         // Now add user data using axios
-        axios.post("http://localhost:5000/users/create", uData)
+        axios.post("https://fewerhnm.herokuapp.com/users/create", uData)
 
         // Making realtime using Socket.io
         socket.once('user-added', newData => {
@@ -62,7 +62,7 @@ const Popup = ({ setPopup, user, setUsers, setCardUser }) => {
             phone: data.phone,
             _id: data._id
         }
-        axios.put("http://localhost:5000/users/update",uData)
+        axios.put("https://fewerhnm.herokuapp.com/users/update",uData)
 
         socket.once('user-updated', (updatedData) => {
             setCardUser(updatedData)
